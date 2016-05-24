@@ -11,12 +11,13 @@
     </welcome-file-list>
 
     <servlet>
-        <servlet-name>MySrv</servlet-name>
-        <servlet-class>MySrv</servlet-class>
+
+        <servlet-name>AutoCompleteServlet</servlet-name>
+        <servlet-class>com.ajax.AutoCompleteServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>MySrv</servlet-name>
-        <url-pattern>/MySrv</url-pattern>
+        <servlet-name>AutoCompleteServlet</servlet-name>
+        <url-pattern>/autocomplete</url-pattern>
     </servlet-mapping>
 </web-app>

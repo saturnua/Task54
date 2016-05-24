@@ -1,8 +1,29 @@
-import java.sql.*;
-
-
 public class ConnectToDB {
-    public static String Connect() throws SQLException, ClassNotFoundException {
+
+
+        boolean connectToDataBase;
+        public String connect(){
+            if (connectToDataBase == true){
+                return "Don't do it!";
+            }
+            connectToDataBase = true;
+            System.out.println("Connect complite!");
+            return "Connect complite!";
+
+        }
+
+        public String disconnect() {
+            if (connectToDataBase == false){
+                return "Don't do it!";
+            }
+            connectToDataBase = false;
+            System.out.println("Disonnected DB!");
+            return "Disonnected DB!";
+
+        }
+
+        /*
+         public static String Connect() throws SQLException, ClassNotFoundException {
         Connection connection = null;
         String userName = "root";
         String password = "cthdbc1";
@@ -36,5 +57,5 @@ public class ConnectToDB {
         if(conn != null)
             conn.close();
         return resultOfConnection;
-    }
+    }*/
 }

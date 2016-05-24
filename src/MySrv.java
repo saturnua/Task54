@@ -1,13 +1,32 @@
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
 
 public class MySrv extends HttpServlet {
 
+    ConnectToDB db = new ConnectToDB();
+
     @Override
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String state = request.getParameter("state");
+        PrintWriter out = response.getWriter();
+        if (state.equals("Connect")) {
+            db.connect();
+            out.write("Connected!");
+        } else if (state.equals("Disconnect")) {
+            db.disconnect();
+            out.write("Disconnected!");
+        } else {
+
+            out.write("Ooommhh! Call to support!");
+            out.flush();
+            out.close();
+        }
+
+    /*@Override
     public void doGet(HttpServletRequest request, HttpServletResponse response){
         String inputText = request.getParameter("inputText");
         response.setStatus(HttpServletResponse.SC_OK);
@@ -27,6 +46,8 @@ public class MySrv extends HttpServlet {
         out.write("<h1>Its Okey Dany!!!!!</h1>" + res);
         out.flush();
         out.close();
-    }
 
-}
+
+    }*/
+
+}}
